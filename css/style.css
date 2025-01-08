@@ -2,22 +2,25 @@
 	font-family: 'Gilroy';
 	src: local('Gilroy Regular'), local('Gilroy-Regular'),
 		url('../assets/fonts/gilroy/Gilroy-Regular.woff2') format('woff2'),
-		url('../assets/fonts/gilroy/Gilroy-Regular.woff') format('woff');
+		url('../assets/fonts/gilroy/Gilroy-Regular.woff') format('woff'),
+		url('../assets/fonts/gilroy/Gilroy-bold.woff2') format('woff2'),
+		url('../assets/fonts/gilroy/Gilroy-Bold.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Chronicle-display';
-	src: local('Chronicle-display Regular'), local('Chronicle-display-Regular'),
-		url('../assets/fonts/chronicle-display/Chronicle/Display/Roman.otf')
-			format('otf');
-	font-weight: normal;
+	font-family: 'Gilroy';
+	src: local('Gilroy Bold'), local('Gilroy-Bold'),
+		url('../assets/fonts/gilroy/Gilroy-bold.woff2') format('woff2'),
+		url('../assets/fonts/gilroy/Gilroy-Bold.woff') format('woff');
+	font-weight: bold;
 	font-style: normal;
 }
 
 :root {
 	--Accent: #fbd784;
+	--Main: #0b1d26;
 	--Slate-100: hsl(202, 86%, 94%);
 	--Slate-300: hsl(203, 41%, 72%);
 	--Slate-500: hsl(200, 26%, 54%);
@@ -31,6 +34,14 @@
 	box-sizing: border-box;
 	text-decoration: none;
 	list-style: none;
+	font-family: 'Gilroy';
+}
+
+p {
+	font-size: 18px;
+	color: #fff;
+	letter-spacing: 1.5px;
+	line-height: 1.4;
 }
 
 body {
@@ -58,7 +69,6 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	font-family: 'Gilroy';
 	margin-top: 5px;
 	z-index: 2;
 }
@@ -106,7 +116,6 @@ nav {
 	align-items: center;
 	justify-content: center;
 	gap: 5px;
-	font-family: 'Gilroy';
 	z-index: 2;
 }
 .account__box > a {
@@ -127,22 +136,61 @@ nav {
 
 .parallax__container {
 	position: relative;
-	width: 60%;
+	width: 65%;
 	display: flex;
 	flex-direction: column;
 	align-items: start;
 	justify-content: center;
 	gap: 20px;
-	top: 15%;
+	top: 30%;
+	left: 150px;
 	z-index: 2;
 }
 
-.parallax__container:hover {
-	border-bottom: 1px solid #fff;
+.parallax__container::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: linear-gradient(to right, white, transparent);
+	transition: width 0.3s ease;
+}
+.parallax__container:hover::after {
+	width: 100%;
 }
 
-.parallax__label {
+.parallax__container > p {
+	position: relative;
+	color: #fff;
+	letter-spacing: 3px;
+}
+
+.arrow {
+	position: absolute;
+	top: 0;
+	left: 110%;
+	width: 2px;
+	height: 15px;
+	background-color: #fff;
+}
+
+.arrow::after {
+	content: '';
+	position: absolute;
+	top: 6px;
+	left: -4px;
+	width: 8px;
+	height: 8px;
+	border-right: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	transform: rotate(45deg);
+}
+
+.label {
 	color: var(--Accent);
+	width: 100%;
 	display: flex;
 	font-size: 18px;
 	letter-spacing: 6px;
@@ -151,7 +199,7 @@ nav {
 	text-transform: uppercase;
 }
 
-.parallax__label::before {
+.label::before {
 	flex: 0 0 70px;
 	content: '';
 	margin-right: 30px;
@@ -160,7 +208,9 @@ nav {
 }
 
 .parallax__title {
-	font-size: 64px;
+	font-size: 68px;
+	letter-spacing: 4px;
+	color: var(--Slate-900);
 }
 
 .parallax__images {
@@ -196,14 +246,73 @@ nav {
 
 .images-parallax__mountains {
 	background: url(../assets/img/mountain.png) top / cover no-repeat;
-	top: 20%;
+	top: 10%;
 	z-index: 2;
 }
 
 .images-parallax__human {
 	background: url(../assets/img/human.png) top / cover no-repeat;
-	top: 55%;
+	top: 45%;
 	z-index: 3;
+}
+
+.content {
+	background-color: var(--Main);
+	position: relative;
+	z-index: 2;
+}
+
+.wrapper__block {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+.block__description {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	gap: 20px;
+}
+
+.block__title {
+	font-size: 48px;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 10px;
+	padding-right: 20px;
+}
+
+.read__more {
+	position: relative;
+	color: var(--Accent);
+	font-weight: bold;
+}
+
+.read__more::before {
+	content: '';
+	position: absolute;
+	top: 14px;
+	right: -40px;
+	width: 30px;
+	height: 1px;
+	background-color: var(--Accent);
+}
+
+.read__more::after {
+	content: '';
+	position: absolute;
+	top: 8px;
+	right: -39px;
+	width: 11px;
+	height: 11px;
+	border-right: 1px solid var(--Accent);
+	border-bottom: 1px solid var(--Accent);
+	transform: rotate(-45deg);
 }
 
 @media (max-aspect-ratio: 3/2) {
