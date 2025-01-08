@@ -1,3 +1,21 @@
+@font-face {
+	font-family: 'Gilroy';
+	src: local('Gilroy Regular'), local('Gilroy-Regular'),
+		url('/assets/fonts/gilroy/Gilroy-Regular.woff2') format('woff2'),
+		url('/assets/fonts/gilroy/Gilroy-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Chronicle-display';
+	src: local('Chronicle-display Regular'), local('Chronicle-display-Regular'),
+		url('/assets/fonts/chronicle-display/Chronicle/Display/Roman.otf')
+			format('otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
 :root {
 	--Accent: #fbd784;
 }
@@ -41,6 +59,7 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	font-family: 'Gilroy';
 	z-index: 4;
 }
 
@@ -131,7 +150,7 @@ a {
 
 .images-parallax__mountains {
 	background: url(../assets/img/mountain.png) top / cover no-repeat;
-	top: 15%;
+	top: 20%;
 	z-index: 2;
 }
 
