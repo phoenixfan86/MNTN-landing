@@ -18,6 +18,11 @@
 
 :root {
 	--Accent: #fbd784;
+	--Slate-100: hsl(202, 86%, 94%);
+	--Slate-300: hsl(203, 41%, 72%);
+	--Slate-500: hsl(200, 26%, 54%);
+	--Slate-700: hsl(200, 24%, 40%);
+	--Slate-900: hsl(202, 55%, 16%);
 }
 
 * {
@@ -28,15 +33,9 @@
 	list-style: none;
 }
 
-a {
-	color: #fff;
-}
-
 body {
 	height: 100%;
 	line-height: 1;
-	background-color: #0b1d26;
-	color: #fff;
 }
 
 .wrapper {
@@ -60,7 +59,21 @@ header {
 	align-items: center;
 	justify-content: space-around;
 	font-family: 'Gilroy';
-	z-index: 4;
+	margin-top: 5px;
+	z-index: 2;
+}
+
+.logo {
+	z-index: 2;
+}
+
+.logo a {
+	color: var(--Slate-500);
+}
+
+.logo:hover a {
+	color: var(--Slate-900);
+	transition: color 0.5s ease;
 }
 
 nav {
@@ -69,17 +82,39 @@ nav {
 	z-index: 2;
 }
 
-nav > ul {
+.header__menu {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 40px;
-	color: #fff;
 }
 
-a {
-	color: #fff;
+.header__menu a {
+	color: var(--Slate-500);
+}
+
+.header__menu:hover a {
+	color: var(--Slate-900);
+	transition: color 0.5s ease;
+}
+
+.account__box {
+	width: 100px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	font-family: 'Gilroy';
+	z-index: 2;
+}
+.account__box > a {
+	color: var(--Slate-100);
+}
+
+.account__box:hover a {
+	color: var(--Slate-900);
 }
 
 .parallax__body {
@@ -92,7 +127,18 @@ a {
 
 .parallax__container {
 	position: relative;
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	gap: 20px;
+	top: 15%;
 	z-index: 2;
+}
+
+.parallax__container:hover {
+	border-bottom: 1px solid #fff;
 }
 
 .parallax__label {
@@ -156,7 +202,7 @@ a {
 
 .images-parallax__human {
 	background: url(../assets/img/human.png) top / cover no-repeat;
-	top: 45%;
+	top: 55%;
 	z-index: 3;
 }
 
