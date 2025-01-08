@@ -263,11 +263,22 @@ nav {
 }
 
 .wrapper__block {
+	position: relative;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 20px;
+}
+
+.wrapper__block:nth-child(1)::before {
+	content: '01';
+	font-size: 180px;
+	font-weight: bold;
+	color: rgba(255, 255, 255, 0.4);
+	position: absolute;
+	top: 80px;
+	left: -95px;
 }
 
 .block__description {
